@@ -1,0 +1,27 @@
+{
+  "name": "heroku-devel",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+  },
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4"
+  },
+  "exportsOverride": {
+    "bootstrap" : {
+      "js": "**/bootstrap.min.js",
+      "css": "**/bootstrap.min.css"
+    },
+    "jquery" : {
+      "js": "**/jquery.min.js"
+    }
+  }
+}
