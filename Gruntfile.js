@@ -11,18 +11,18 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
 		watch : {
-			files: '../src/*.html',
+			files: 'app/*.html',
 			tasks: ['copy']
 		},
 		copy : {
 			main: {
 				files: [{
 					expand: true,
-					cwd: '../src',
+					cwd: 'app',
 					src: [
 						'*.html'
 					],
-					dest: '../webapp/templates',
+					dest: './webapp/templates',
 					dot: false
 				}]
 			}
@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 		bower: {
 			install: {
 				options: {
-					targetDir: '../webapp/static',
+					targetDir: './webapp/static',
 					layout: function(type, component) {
 						return path.join(type)
 					},
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
 		},
 		browserSync : {
 			bsFiles : {
-				src : '../webapp/templates/*.html',
+				src : 'webapp/templates/*.html',
 			},
 			options : {
 				watchTask : true,
@@ -54,13 +54,13 @@ module.exports = function (grunt) {
 	});
 
 	var cwd = process.cwd();
-	process.chdir('../');
 	grunt.loadNpmTasks('grunt-browser-sync');
 	grunt.loadNpmTasks('grunt-bower-task');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-copy');
-	process.chdir(cwd);
+
 	grunt.registerTask('default', ['copy','bower:install', 'browserSync', 'watch']);
+	grunt.registerTask('build', ['copy','bower:install']);
 };
 
 /*  vim: set ts=4 : */
