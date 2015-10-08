@@ -7,7 +7,7 @@
 
 module.exports = {
 	run_app: {
-		command: 'cd webapp && python app.py',
+		command: '[ 1 -eq `ps -ef | grep "webapp && python" | grep -v grep | wc -l` ] && cd webapp && python app.py',
 		options: { async: true }
 	}
 };
