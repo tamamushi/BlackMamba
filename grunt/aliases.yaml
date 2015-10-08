@@ -1,0 +1,10 @@
+
+serve:
+  - 'clean:build'
+  - 'bower:build'
+  - 'copy:html'
+  - 'copy:css'
+  - 'copy:py'
+  - 'shell:run_app'
+  - 'browserSync'
+  - 'watch'
