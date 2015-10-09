@@ -7,9 +7,10 @@
 
 module.exports = {
 	run_app: {
-		command: 'if [ ! 1 -eq `ps -Af | grep "webapp && python" \
-					| grep -v grep | wc -l` ]; then cd webapp && python app.py; fi',
-		options: { async: true }
+		command: 'if [ 1 -gt `ps -Af | grep "python app.py" | grep -v grep | wc -l` ]; then cd webapp && python app.py; fi >> /dev/null',
+		options: { 
+			async: true,
+		 }
 	}
 };
 /*  vim: set ts=4 : */

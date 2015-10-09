@@ -11,7 +11,7 @@ module.exports = {
 		tasks: ['copy:html', 'copy:css']
 	},
 	app: {
-		files: ['./app/*.py'],
+		files: ['./app/*.py', './app/views/*.py' ],
 		tasks: ['copy:py', 'shell:run_app']
 	}
 };

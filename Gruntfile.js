@@ -17,6 +17,12 @@ module.exports = function (grunt) {
 			scope: 'devDependencies'
 		}
 	});
+
+	var os			= require('os');
+	var interfaces	= os.networkInterfaces();
+	for (var dev in interfaces) {
+		grunt.log.writeln(interfaces[dev][0].address)
+	}
 };
 
 /*  vim: set ts=4 : */

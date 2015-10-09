@@ -5,13 +5,14 @@
  *	This file is grunt browserSync task setting file for grunt by load-grunt-config
 **/
 
-module.exports =  {
+module.exports = {
+
 	bsFiles : {
 		src : 'webapp/templates/*.html',
 	},
 	options : {
 		watchTask : true,
-		proxy : '192.168.33.14:5000',
+		proxy : 'http://localhost:5000',
 		host : '0.0.0.0'
 	}
 };

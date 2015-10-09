@@ -9,18 +9,18 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "bootstrap": "~3.3.5",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "font-awesome": "font-awsome#~4.4.0"
   },
   "exportsOverride": {
-    "bootstrap" : {
+    "bootstrap": {
       "js": "**/bootstrap.min.js",
       "css": "**/bootstrap.min.css"
     },
-    "jquery" : {
+    "jquery": {
       "js": "**/jquery.min.js"
     }
   }

@@ -28,7 +28,7 @@ module.exports = {
 		files: [{
 			expand:		true,
 			cwd:		'app',
-			src:		[ '*.py' ],
+			src:		[ '*.py', 'views/*.py' ],
 			dest:		'./webapp/',
 			dot:		false
 		}]

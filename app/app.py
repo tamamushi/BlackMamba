@@ -4,6 +4,7 @@
 
 import os
 from flask import Flask, render_template
+import views.Setting
 
 app = Flask(__name__)
 app.debug = True
@@ -30,6 +31,7 @@ def template(file_name=''):
 def debug():
     return render_template('notemplate.html')
 
+views.Setting.SettingView.register(app)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
