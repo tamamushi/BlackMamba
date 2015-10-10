@@ -13,7 +13,9 @@
   "dependencies": {
     "bootstrap": "~3.3.5",
     "jquery": "~2.1.4",
-    "font-awesome": "font-awsome#~4.4.0"
+    "font-awesome": "font-awsome#~4.4.0",
+    "animate.css": "~3.4.0",
+    "iCheck": "icheck#~1.0.2"
   },
   "exportsOverride": {
     "bootstrap": {
@@ -22,6 +24,16 @@
     },
     "jquery": {
       "js": "**/jquery.min.js"
-    }
+    },
+    "font-awesome": {
+      "css": "**/font-awesome.min.css",
+      "fonts": "fonts/*"
+    },
+    "animate.css": {
+      "css": "**/animate.min.css"
+    },
+	"iCheck": {
+	  "css/icheck/flat": "**/skins/flat/*"
+	}
   }
 }
