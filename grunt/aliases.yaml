@@ -8,3 +8,9 @@ serve:
   - 'shell:run_app'
   - 'browserSync'
   - 'watch'
+
+reload_serve:
+  - 'shell:run_app:kill'
+  - 'shell:run_app'
+  - 'browserSync'
+  - 'watch'

@@ -12,7 +12,7 @@ module.exports = {
 	},
 	app: {
 		files: ['./app/*.py', './app/views/*.py' ],
-		tasks: ['copy:py', 'shell:run_app']
+		tasks: ['copy:py', 'shell:run_app:kill', 'shell:run_app']
 	}
 };
 /*  vim: set ts=4 : */
