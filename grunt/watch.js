@@ -7,11 +7,11 @@
 
 module.exports = {
 	assets: {
-		files: ['./app/templates/*.html', './app/styles/*.css' ],
+		files: ['./src/templates/*.html', './src/styles/*.css' ],
 		tasks: ['copy:html', 'copy:css']
 	},
 	app: {
-		files: ['./app/*.py', './app/views/*.py' ],
+		files: ['./src/*.py', './src/views/*.py' ],
 		tasks: ['copy:py', 'shell:run_app:kill', 'shell:run_app']
 	}
 };

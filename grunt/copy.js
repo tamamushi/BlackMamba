@@ -9,7 +9,7 @@ module.exports = {
 	html: {
 		files: [{ 
 			expand:		true,
-			cwd:		'app',
+			cwd:		'src',
 			src:		[ 'templates/*.html' ],
 			dest:		'./webapp/',
 			dot:		false
@@ -18,7 +18,7 @@ module.exports = {
 	css: {
 		files: [{
 			expand:		true,
-			cwd:		'app/styles',
+			cwd:		'src/styles',
 			src:		[ '**/*.css' ],
 			dest:		'webapp/static/css/',
 			dot:		false
@@ -27,7 +27,7 @@ module.exports = {
 	py: {
 		files: [{
 			expand:		true,
-			cwd:		'app',
+			cwd:		'src',
 			src:		[ '*.py', 'views/*.py' ],
 			dest:		'./webapp/',
 			dot:		false
