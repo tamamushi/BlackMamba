@@ -2,43 +2,31 @@
 # -*- coding: utf-8 -*-
 # vim:set ts=4 fenc=utf-8:
 
-import os
-from flask import Flask, render_template, redirect, url_for
-import views.Setting
+import os, commands
+from flask.ext.script import Server, Manager
+from flask.ext.sqlalchemy import SQLAlchemy
+from webapp import app
 
-app = Flask(__name__)
-app.debug = True
+root_dbpass = '09842d8897cf947d'
+db_name	= 'blackmamba'
+db_user	= 'blackmamba'
+db_pass	= 'blackmamba'
 
-@app.route('/index/<name>')
-def index(name=''):
-	if name == '':
-		name = u'こんにちは'
-	return render_template('index.html', name=name)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://' + db_user + ':' + db_pass + '@192.168.1.104/blackmamba'
+db		= SQLAlchemy(app)
 
-## authentication method for login user
-@app.route('/auth', methods=['POST'])
-def auth():
-	name = u'さぶろー'
-	return redirect(url_for('index', name=name))
+manager = Manager(app)
+manager.add_command('runserver', Server(host='0.0.0.0', port='5000'))
 
-@app.route('/login')
-def login():
-	return render_template('login.html')
+@manager.command
+def init_db():
+	grant_statement	= '/usr/bin/mysql --password=' + root_dbpass + ' -uroot -e "GRANT ALL PRIVILEGES ON '
+	grant_statement	= grant_statement + db_name + '.* TO ' + db_user + '@'
+	grant_statement	= grant_statement + '\'192.168.%\' IDENTIFIED BY \'' + db_pass + '\'"'
+	print grant_statement
+	os.system(grant_statement)
+	db.create_all()
 
-@app.route('/logout')
-def logout():
-	return redirect(url_for('login'))
 
-@app.route('/template/<file_name>')
-def template(file_name=''):
-	return render_template(file_name + '.html')
-
-@app.route('/debug')
-def debug():
-    return render_template('notemplate.html')
-
-views.Setting.SettingView.register(app)
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host="0.0.0.0", port=port)
+if __name__ == "__main__":
+	manager.run()

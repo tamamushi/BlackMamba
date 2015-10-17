@@ -5,12 +5,30 @@ serve:
   - 'copy:html'
   - 'copy:css'
   - 'copy:py'
+  - 'env:dev_db'
   - 'shell:run_app'
   - 'browserSync'
   - 'watch'
+
+build:
+  - 'clean:build'
+  - 'bower:build'
+  - 'copy:html'
+  - 'copy:css'
+  - 'copy:py'
 
 reload_serve:
   - 'shell:run_app:kill'
   - 'shell:run_app'
   - 'browserSync'
   - 'watch'
+
+createdb:
+  - 'mngdb:createdb'
+
+dropdb:
+  - 'mngdb:dropdb'
+
+resetdb:
+  - 'mngdb:dropdb'
+  - 'mngdb:createdb'

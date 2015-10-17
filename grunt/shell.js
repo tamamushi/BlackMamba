@@ -7,7 +7,8 @@
 
 module.exports = {
 	run_app: {
-		command: 'if [ 1 -gt `ps -Af | grep "python app.py" | grep -v grep | wc -l` ]; then cd webapp && python app.py; fi >> /dev/null',
+		command: 'if [ 1 -gt `ps -Af | grep "python manage.py runserver" \
+					| grep -v grep | wc -l` ]; then python manage.py runserver; fi >> /dev/null',
 		options: { 
 			async: true,
 		 }

@@ -6,6 +6,7 @@
 **/
 
 var path = require('path');
+var grunt = require('grunt');
 module.exports = function (grunt) {
 	'use strict';
 
@@ -23,6 +24,8 @@ module.exports = function (grunt) {
 	for (var dev in interfaces) {
 		grunt.log.writeln(interfaces[dev][0].address)
 	}
+
+	grunt.task.loadTasks("grunt/task");
 };
 
 /*  vim: set ts=4 : */
