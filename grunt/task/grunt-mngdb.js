@@ -9,6 +9,34 @@ var mysql = require('mysql');
 
 module.exports = function (grunt) {
 
+	function execute(sql, opts, done, callback) {
+		var conn = mysql.createConnection(opts);
+
+		var q = conn.query(sql,
+			function(err, res, fields) {
+				if (err) {
+					switch(err.number) {
+						/* database exists error when try to create database */
+						case mysql.ER_DB_CREATE_EXISTS:
+ 							console.log(q.sql + ": already exists!"); done(err);
+							break;
+						default:
+							grunt.fail.fatal(q.sql + '\nfatal error: ' + err.stack);
+					}
+				} else if (!err) {
+					console.log(q.sql + ": success!");
+					done(err);
+				}
+				/*
+				if (typeof (collback) == "function" ) { 
+					console.log("ok");
+					//callback(err, res, fields, done);
+				}
+				*/
+		});
+		conn.end();
+	}
+
 	grunt.registerMultiTask('mngdb', 'management database', function() {
 
 		var cmd	 	= this.target;
@@ -18,26 +46,15 @@ module.exports = function (grunt) {
 			database:	'mysql',
 		});
 
-		//var done	= this.async();
+		var done	= this.async();
 		var conn 	= mysql.createConnection(opts);
 
 		switch(cmd) {
 		case 'createdb':
-			var q = conn.query(
-						'CREATE DATABASE ' + data,
-						function(err, res) {
-							if (err) grunt.fail.fatal(q.sql + '\nfatal error: ' + err.stack);
-							if (!err) console.log(res);
-						});
+			execute('CREATE DATABASE ' + data, opts, done);
 			break;
 		case 'dropdb':
-			var q = conn.query(
-					'DROP DATABASE IF EXISTS ' + data,
-					function(err, res) {
-						if (err) grunt.fail.fatal(q.sql + '\nfatal error: ' + err.stack);
-						if (!err) console.log(res);
-						conn.end();
-					});
+			execute('DROP DATABASE IF EXISTS ' + data, opts, done);
 			break;
 		case 'adduser':
 			var d	= data;
