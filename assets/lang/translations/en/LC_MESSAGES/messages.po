@@ -1,0 +1,93 @@
+# English translations for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-10-19 00:25+0000\n"
+"PO-Revision-Date: 2015-10-18 22:12+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.1.1\n"
+
+#: webapp/view.py:47
+msgid "Invalid username or password"
+msgstr ""
+
+#: webapp/templates/index.html:72 webapp/templates/setting.html:72
+msgid "My Profile"
+msgstr ""
+
+#: webapp/templates/index.html:74 webapp/templates/setting.html:74
+msgid "Sign out"
+msgstr ""
+
+#: webapp/templates/login.html:41
+msgid "login"
+msgstr ""
+
+#: webapp/templates/login.html:51 webapp/templates/register.html:49
+msgid "username"
+msgstr ""
+
+#: webapp/templates/login.html:55 webapp/templates/register.html:53
+msgid "password"
+msgstr ""
+
+#: webapp/templates/login.html:59
+msgid "remember"
+msgstr ""
+
+#: webapp/templates/register.html:40
+msgid "Sign up"
+msgstr ""
+
+#: webapp/templates/register.html:57
+msgid "confirm password"
+msgstr ""
+
+#: webapp/templates/register.html:62
+msgid "E-mail"
+msgstr ""
+
+#: webapp/templates/register.html:66
+msgid "First name"
+msgstr ""
+
+#: webapp/templates/register.html:70
+msgid "Family name"
+msgstr ""
+
+#: webapp/templates/register.html:75
+msgid "male"
+msgstr ""
+
+#: webapp/templates/register.html:78
+msgid "female"
+msgstr ""
+
+#: webapp/templates/register.html:83
+msgid "i agree with"
+msgstr ""
+
+#: webapp/templates/register.html:83
+msgid "terms"
+msgstr ""
+
+#: webapp/templates/register.html:89
+msgid "already have an account?"
+msgstr ""
+
+#: webapp/templates/register.html:89
+msgid "login here"
+msgstr ""
+
