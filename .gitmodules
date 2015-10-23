@@ -1,0 +1,3 @@
+[submodule "assets/synwecat"]
+	path = assets/synwecat
+	url = https://github.com/tamamushi/synwecat.git
