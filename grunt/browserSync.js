@@ -8,7 +8,7 @@
 module.exports = {
 
 	bsFiles : {
-		src : 'webapp/templates/*.html',
+		src : 'webapp/', 
 	},
 	options : {
 		watchTask : true,

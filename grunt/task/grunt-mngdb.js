@@ -15,9 +15,9 @@ module.exports = function (grunt) {
 		var q = conn.query(sql,
 			function(err, res, fields) {
 				if (err) {
-					switch(err.number) {
+					switch(err.code) {
 						/* database exists error when try to create database */
-						case mysql.ER_DB_CREATE_EXISTS:
+						case 'ER_DB_CREATE_EXISTS':
  							console.log(q.sql + ": already exists!"); done(err);
 							break;
 						default:
@@ -58,9 +58,14 @@ module.exports = function (grunt) {
 			break;
 		case 'adduser':
 			var d	= data;
-			var sql	= 'GRANT SELECT, INSERT, UPDATE ON ' + d.table + '.* TO ' + d.user;
-				sql	= sql + '@"' + d.allow + '" IDENTIFIED BY "' + d.pass + '"'; return;
+			var sql	= 'GRANT SELECT, INSERT, UPDATE, CREATE, DROP ON ' + d.database + '.* TO ' + d.username;
+				sql	= sql + '@"' + d.allow + '" IDENTIFIED BY "' + d.password + '"'; 
+			execute(sql, opts, done);
+			break;
 		case 'rmuser':
+			var d	= data;
+			execute('drop user ' + d.username + '@"' + d.allow + '"', opts, done);
+			break;
 		default:
 			grunt.fail.fatal(fmt('Unknown target: %s', cmd));
 		}

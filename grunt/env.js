@@ -6,8 +6,8 @@
 **/
 
 module.exports = {
-	dev_db: {
-		DATABASE_URL: 'mysql://test:test@localhost/blackmamba'
+	database_url: {
+		DATABASE_URL: 'mysql://blackmamba:blackmamba@localhost/blackmamba'
 	}
 };
 

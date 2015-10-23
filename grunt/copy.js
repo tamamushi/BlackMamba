@@ -24,6 +24,15 @@ module.exports = {
 			dot:		false
 		}]
 	},
+	lang: {
+		files: [{ 
+			expand:		true,
+			cwd:		'assets/lang',
+			src:		[ 'translations/**/**/*.mo' ],
+			dest:		'./webapp/',
+			dot:		false
+		}]
+	},
 	py: {
 		files: [{
 			expand:		true,

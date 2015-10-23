@@ -31,6 +31,18 @@ class User(db.Model):
 			return False
 		return check_password_hash(self.password, password)
 
+	def is_authenticated(self):
+		return True  
+
+	def is_active(self):
+		return True
+
+	def is_anonymous(self):
+		return False
+
+	def get_id(self):
+		return unicode(self.id)
+
 	@classmethod
 	def authenticate(cls, query, uname, password):
 		user = query(cls).filter(cls.uname == uname).first()

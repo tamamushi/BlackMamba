@@ -5,7 +5,10 @@ serve:
   - 'copy:html'
   - 'copy:css'
   - 'copy:py'
-  - 'env:dev_db'
+  - 'shell:build_lang'
+  - 'copy:lang'
+  - 'env:database_url'
+  - 'shell:kill_app'
   - 'shell:run_app'
   - 'browserSync'
   - 'watch'
@@ -16,19 +19,27 @@ build:
   - 'copy:html'
   - 'copy:css'
   - 'copy:py'
+  - 'shell:init_db'
+  - 'shell:update_lang'
+  - 'shell:build_lang'
+  - 'copy:lang'
 
 reload_serve:
-  - 'shell:run_app:kill'
+  - 'shell:kill_app'
   - 'shell:run_app'
   - 'browserSync'
   - 'watch'
 
-createdb:
-  - 'mngdb:createdb'
-
-dropdb:
-  - 'mngdb:dropdb'
-
-resetdb:
+init:
   - 'mngdb:dropdb'
   - 'mngdb:createdb'
+  - 'mngdb:adduser'
+  - 'env:database_url'
+
+drop_all:
+  - 'mngdb:dropdb'
+  - 'mngdb:rmuser'
+
+init_lang:
+  - 'shell:init_lang'
+

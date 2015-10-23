@@ -79,7 +79,9 @@
 	</div><!-- /.container-fluid -->
 	</nav>
 	<!-- ナビゲーションバー:END -->
-	こんにちは{{name}}さん
+	{% if current_user.is_authenticated %}
+	こんにちは {{ current_user.name }}  さん
+	{% endif %}
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/static/js/jquery.min.js"></script>

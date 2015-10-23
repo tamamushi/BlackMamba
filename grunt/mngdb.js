@@ -16,12 +16,15 @@ module.exports = {
 		host:		'localhost',
 		database:	'mysql',
 	},
-
 	adduser: {
-		table: 'blackmamba',
-		username: 'test',
-		password: 'panpanok',
+		database: 'blackmamba',
+		username: 'blackmamba',
+		password: 'blackmamba',
 		allow: 'localhost'
+	},
+	rmuser: {
+		username: 'blackmamba',
+		allow:    'localhost'
 	},
 	createdb: 'blackmamba',
 	dropdb: 'blackmamba'
