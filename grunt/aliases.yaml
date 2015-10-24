@@ -35,6 +35,7 @@ init:
   - 'mngdb:createdb'
   - 'mngdb:adduser'
   - 'env:database_url'
+  - 'shell:init_db'
 
 drop_all:
   - 'mngdb:dropdb'
