@@ -2,9 +2,7 @@
 serve:
   - 'clean:build'
   - 'bower:build'
-  - 'copy:html'
-  - 'copy:css'
-  - 'copy:py'
+  - 'copy'
   - 'shell:build_lang'
   - 'copy:lang'
   - 'env:database_url'
@@ -16,9 +14,7 @@ serve:
 build:
   - 'clean:build'
   - 'bower:build'
-  - 'copy:html'
-  - 'copy:css'
-  - 'copy:py'
+  - 'copy'
   - 'shell:init_db'
   - 'shell:update_lang'
   - 'shell:build_lang'
