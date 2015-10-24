@@ -6,6 +6,15 @@
 **/
 
 module.exports = { 
+	images: {
+		files: [{ 
+			expand:		true,
+			cwd:		'src/images',
+			src:		[ '**/*' ],
+			dest:		'./webapp/static/images/',
+			dot:		false
+		}]
+	},
 	html: {
 		files: [{ 
 			expand:		true,
