@@ -31,6 +31,7 @@ def register():
 	return render_template('register.html')
 
 @app.route('/logout')
+@login_required
 def logout():
 	logout_user();
 	return redirect(url_for('login'))
@@ -62,6 +63,12 @@ def user_create():
 		login_user(user)
 		return redirect(url_for('index', name=user.uname))
 	return render_template('register.html')
+
+@app.route('/template/<file>')
+def template(file=''):
+	if file == '':
+		file = 'setting'	
+	return render_template(file + '.html')
 
 Setting.SettingView.register(app)
 

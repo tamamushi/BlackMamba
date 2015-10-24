@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-23 19:51+0000\n"
+"POT-Creation-Date: 2015-10-24 08:03+0000\n"
 "PO-Revision-Date: 2015-10-18 22:12+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh\n"
@@ -19,15 +19,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.1.1\n"
 
-#: webapp/view.py:52
+#: webapp/view.py:53
 msgid "Invalid username or password"
 msgstr ""
 
-#: webapp/templates/index.html:72 webapp/templates/setting.html:72
+#: webapp/templates/layout.html:72 webapp/templates/setting.html:72
 msgid "My Profile"
 msgstr ""
 
-#: webapp/templates/index.html:74 webapp/templates/setting.html:74
+#: webapp/templates/layout.html:74 webapp/templates/setting.html:74
 msgid "Sign out"
 msgstr ""
 
